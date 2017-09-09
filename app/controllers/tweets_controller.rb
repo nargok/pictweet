@@ -1,5 +1,7 @@
 class TweetsController < ApplicationController
 
+  before_action :move_to_index, except: :index
+
   def index
     @tweets = Tweet.all.paginate(page: params[:page]).order('created_at DESC')
   end
@@ -17,4 +19,8 @@ class TweetsController < ApplicationController
     params.permit(:name, :image, :text)
   end
 
+  def move_to_index
+    # ログインしていなかった場合にindex actionを実行する
+    redirect_to action: :index unless user_signed_in?
+  end
 end
