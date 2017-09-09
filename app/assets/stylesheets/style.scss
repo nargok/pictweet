@@ -7,10 +7,10 @@
  * http://ipafont.ipa.go.jp/ipa_font_license_v1.html（IPAフォントライセンスv1.0のURL）
  */
 @font-face {
-    font-family: 'ほのか明朝';
-    src: url('font_1_honokamin.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'ほのか明朝';
+  src: url('font_1_honokamin.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @import url(http://fonts.googleapis.com/css?family=Unica+One);
@@ -47,7 +47,7 @@ body {
 }
 
 h1,h2,h3,h4,h5,h6,body {
-line-height: 1.57;
+  line-height: 1.57;
   letter-spacing: 0.15em;
   font-size: 16px;
   color: $dark;
@@ -87,14 +87,14 @@ a {
 }
 
 .btn {
-    @include basePadding(8px 20px);
-    font-size: 14px;
-    border: 2px solid $accent;
-    color: $accent;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 3px;
-    display: inline-block;
+  @include basePadding(8px 20px);
+  font-size: 14px;
+  border: 2px solid $accent;
+  color: $accent;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 3px;
+  display: inline-block;
   &:hover {
     border-color: lighten($accent, 15%);
     color: lighten($accent, 15%);
@@ -190,7 +190,7 @@ header.header {
           border-bottom: 1px solid #d8d8d8;
         }
       }
-     }
+    }
   }
 }
 .form {
@@ -221,7 +221,7 @@ div.contents.row {
     }
   }
   .new_user{
-  font-family: "游ゴシック", "YuGothic";
+    font-family: "游ゴシック", "YuGothic";
   }
   div.content_post {
     @include boxBase(20px 0 ,30px);
