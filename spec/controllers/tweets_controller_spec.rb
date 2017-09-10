@@ -1,6 +1,9 @@
 require 'rails_helper'
 
+
 RSpec.describe TweetsController, :type => :controller do
+
+  let(:user) {create(:user)}
 
   describe 'GET #index' do
     it 'returns tweets object with #index' do
@@ -16,6 +19,10 @@ RSpec.describe TweetsController, :type => :controller do
   end
 
   describe 'GET #new' do
+    before do
+      login_user user
+    end
+
     #new templateを描画する
     it 'renders new template' do
       get :new
@@ -23,13 +30,16 @@ RSpec.describe TweetsController, :type => :controller do
     end
   end
 
-
   describe 'POST #create' do
+    before do
+      login_user user
+    end
+
     # 有効な属性の場合
     context 'with valid attributes' do
       # databaseに新しいtweetを保存すること
       it 'creates new tweets in the database' do
-        expect{
+        expect {
           post :create, tweet: build(:tweet)
         }.to change(Tweet, :count).by(1)
       end
@@ -38,7 +48,6 @@ RSpec.describe TweetsController, :type => :controller do
         post :create, tweet: build(:tweet)
         expect(response).to render_template :create
       end
-
     end
   end
 
