@@ -7,13 +7,15 @@ feature 'User management' do
     user = build(:user)
 
     visit new_user_registration_path
-    expect{
-      fill_in 'Nickname', with: user.nickname
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: user.password
-      fill_in 'Password confirmation', with: user.password
-      click_button 'Sign up'
-    }.to change(User, :count).by(1)
+    fill_in 'Nickname', with: user.nickname
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    fill_in 'Password confirmation', with: user.password
+    click_button 'Sign up'
+
+    expect(User.find_by(email: user.email)).to be_truthy
+    # root画面に遷移すること
+    expect(current_path).to eq root_path
   end
 
   # ログイン成功
@@ -22,6 +24,7 @@ feature 'User management' do
 
     visit new_user_session_path
     fill_in 'Email', with: user.email
+    # TODO パスワードを入力できないので後で対応する
     fill_in 'Password', with: user.password
     click_button 'Log in'
 
@@ -41,6 +44,17 @@ feature 'User management' do
 
     # ログイン画面のままであること
     expect(current_path).to eq new_user_session_path
+  end
+
+  # TODO Mypageのテストを実装する
+  scenario 'mypage' do
+    # user = create(:user)
+    #
+    #
+    #
+    # visit "/users/#{user.id}"
+    # expect(page).to have_content "#{user.nickname}"
+
   end
 
 end

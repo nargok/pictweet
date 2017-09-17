@@ -58,6 +58,7 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'rails-controller-testing'
+  gem 'chromedriver-helper'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -68,3 +69,5 @@ gem 'compass-rails'
 gem 'sprockets'
 gem 'will_paginate', '3.1.5'
 gem 'devise'
+gem 'better_errors'
+gem 'binding_of_caller'
