@@ -3,21 +3,21 @@ class TweetsController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
-    @tweets = Tweet.all.paginate(page: params[:page]).order('created_at DESC')
+    @tweets = Tweet.includes(:user).paginate(page: params[:page]).order('created_at DESC')
   end
 
   def new
   end
 
   def create
-    Tweet.create(name: tweet_params[:name], image: tweet_params[:image],
+    Tweet.create(image: tweet_params[:image],
                  text: tweet_params[:text], user_id: current_user.id)
   end
 
   private
 
   def tweet_params
-    params.permit(:name, :image, :text)
+    params.permit(:image, :text)
   end
 
   def move_to_index
