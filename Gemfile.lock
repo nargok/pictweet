@@ -43,6 +43,8 @@ GEM
     archive-zip (0.7.0)
       io-like (~> 0.3.0)
     arel (7.1.4)
+    banken (1.0.2)
+      activesupport (>= 3.0.0)
     bcrypt (3.1.11)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -257,6 +259,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  banken
   better_errors
   binding_of_caller
   byebug
@@ -290,4 +293,4 @@ DEPENDENCIES
   will_paginate (= 3.1.5)
 
 BUNDLED WITH
-   1.13.6
+   1.15.1
